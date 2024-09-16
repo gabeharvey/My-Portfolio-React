@@ -4,8 +4,8 @@ import { Box, Text, Link, Container, Stack } from '@chakra-ui/react';
 const Footer = () => {
 
   return (
-    <Box py={6} mt={12} fontFamily="'Share Tech Mono', cursive" id="footer">
-      <Container maxW="container.lg" centerContent>
+    <Box as="footer" py="2rem" px="2rem" fontFamily="'Share Tech Mono', cursive" id="footer" position="relative" mt="150px">
+      <Container>
         <Stack spacing={4} textAlign="center">
           <Text>&copy; {new Date().getFullYear()} Gabe's React Portfolio. All rights reserved.</Text>
           <Stack direction="row" spacing={6} justify="center">

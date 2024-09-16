@@ -1,9 +1,19 @@
 import ReactDOM from 'react-dom/client';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.jsx'
 import './index.css'
 import Home from './components/Home.jsx'
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        backgroundColor: "transparent",
+      },
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -16,7 +26,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <ChakraProvider>
+    <ChakraProvider theme={theme} >
       <RouterProvider router={router}/>
     </ChakraProvider>
 );

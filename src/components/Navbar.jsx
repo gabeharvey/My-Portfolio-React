@@ -1,28 +1,35 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Box, Flex, Heading, Spacer, Link, Button } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, Link } from '@chakra-ui/react';
 
 const Navbar = () => {
-
   return (
     <Box>
-      <Flex align="center" id="navbar">
-        <Heading as="h1" size="lg" fontFamily="'Electrolize', cusive">
+      <Flex
+        align="center"
+        id="navbar"
+        h="120px" 
+        px="2rem" 
+        py="2.5rem"
+        position="relative"
+        mb="150px"
+      >
+        <Heading as="h1" size="lg" fontFamily="'Electrolize', cursive" fontSize="2xl">
           Gabe's React Portfolio
         </Heading>
         <Spacer />
-        <Flex fontFamily="'Share Tech Mono', cursive">
-          <Link href="#about" fontSize="lg">
+        <Flex fontFamily="'Share Tech Mono', cursive" fontSize="lg">
+          <Link href="#about" mx={4}>
             About
           </Link>
-          <Link href="#projects" fontSize="lg">
+          <Link href="#projects" mx={4}>
             Projects
           </Link>
-          <Link href="#contact" fontSize="lg">
+          <Link href="#contact" mx={4}>
             Contact
           </Link>
-          <Button colorScheme="gray" ml={4}>
+          <Link href="#contact" mx={4}>
             Resume
-          </Button>
+          </Link>
         </Flex>
       </Flex>
     </Box>
@@ -30,3 +37,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
