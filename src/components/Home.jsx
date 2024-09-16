@@ -5,11 +5,10 @@ import { useSpring, animated } from '@react-spring/web';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-
 const createSpringProps = (flips, index) => {
   return flips.map(flip =>
     useSpring({
-      transform: `perspective(600px) rotateY(${flip ? 180 : 0}deg)`,
+      transform: `perspective(600px) rotateX(${flip ? 180 : 0}deg)`,
       config: { mass: 5, tension: 800, friction: 80 },
     })
   )[index];
@@ -26,9 +25,32 @@ const Home = () => {
 
   const springProps = flipped.map((flip, index) => createSpringProps(flipped, index));
 
+  const cardData = [
+    {
+      frontImage: 'tives-thread-and-thimble-logo.png',
+      backLogo: '/tech1-logo.png',
+      backText: 'Tives Thread and Thimble'
+    },
+    {
+      frontImage: 'harvey-timber-screen.png',
+      backLogo: '/tech2-logo.png',
+      backText: 'Harvey Timber'
+    },
+    {
+      frontImage: 'desk-space-logo.png',
+      backLogo: '/tech3-logo.png',
+      backText: 'Desk Space'
+    },
+    {
+      frontImage: 'yeez-and-jays-logo.png',
+      backLogo: '/tech4-logo.png',
+      backText: 'Vue.js, Express.js, MySQL'
+    }
+  ];
+
   return (
     <Container maxW="container.lg" bgColor="#333333" mt="50px">
-            <VStack spacing={8} textAlign="center" py={12}>
+      <VStack spacing={8} textAlign="center" py={12}>
         <Box>
           <Heading mb={4} fontFamily="'Electrolize', cursive" color="#fffdd0">Gabe Harvey's Portfolio</Heading>
           <Text fontSize="xl" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">
@@ -44,8 +66,8 @@ const Home = () => {
           My Projects
         </Heading>
         <SimpleGrid columns={[1, 2, 2]} spacing={10} width="100%" justifyItems="center">
-          {['card1.png', 'card2.png', 'card3.png', 'card4.png'].map((image, index) => (
-            <Box key={index} p={4} width="100%" maxWidth="300px" cursor="pointer" display="flex" justifyContent="center">
+          {cardData.map((card, index) => (
+            <Box key={index} p={4} width="100%" maxWidth="400px" cursor="pointer" display="flex" justifyContent="center">
               <animated.div
                 style={{
                   transformStyle: 'preserve-3d',
@@ -67,8 +89,8 @@ const Home = () => {
                   }}
                 >
                   <Image
-                    src={`/${image}`}
-                    alt={`Card ${index + 1}`}
+                    src={`/${card.frontImage}`}
+                    alt={`Card ${index + 1} front`}
                     borderRadius="15px"
                     objectFit="cover"
                     width="100%"
@@ -80,29 +102,37 @@ const Home = () => {
                     position: 'absolute',
                     top: 0,
                     backfaceVisibility: 'hidden',
-                    transform: 'rotateY(180deg)',
+                    transform: 'rotateX(180deg)', 
                     width: '100%',
                     height: '100%',
                     borderRadius: '15px',
                     boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
                     display: 'flex',
-                    justifyContent: 'center',
+                    flexDirection: 'column',
                     alignItems: 'center',
+                    justifyContent: 'center',
                     color: 'white',
                     padding: '1rem',
                     backgroundColor: '#444444',
                   }}
                 >
-                  <Text color="#fffdd0" fontFamily="'Share Tech Mono', cursive">
-                    Card Back Content {index + 1}
+                  <Image
+                    src={card.backLogo}
+                    alt={`Technologies logo ${index + 1}`}
+                    borderRadius="15px"
+                    boxSize="80px"
+                    mb={4}
+                    objectFit="contain"
+                  />
+                  <Text color="#fffdd0" fontFamily="'Share Tech Mono', cursive" textAlign="center">
+                    {card.backText}
                   </Text>
                 </animated.div>
               </animated.div>
             </Box>
           ))}
         </SimpleGrid>
-</VStack>
-
+      </VStack>
     </Container>
   );
 };
