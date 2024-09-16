@@ -13,7 +13,7 @@ const About = () => {
             Martin "Gabe" Harvey is a Full-Stack Web Developer and a rising star in the coding world! Please check out some of my work!
           </Text>
         </Box>
-        <Button colorScheme="red" size="lg" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">
+        <Button colorScheme="red" size="lg" fontFamily="'Share Tech Mono', cursive" color="#fffdd0" mb={6}>
           View My Work
         </Button>
       </VStack>
@@ -22,7 +22,7 @@ const About = () => {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        minHeight="600px"
+        minHeight="420px"
         w="full"
       >
         <Flex
