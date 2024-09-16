@@ -32,7 +32,7 @@ const Home = () => {
         <Box>
           <Heading mb={4} fontFamily="'Electrolize', cursive" color="#fffdd0">Gabe Harvey's Portfolio</Heading>
           <Text fontSize="xl" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">
-            Gabe Harvey is a Full-Stack Web Developer and a rising star in the coding world! Please check out some of my work!
+            Martin "Gabe" Harvey is a Full-Stack Web Developer and a rising star in the coding world! Please check out some of my work!
           </Text>
         </Box>
         <Button colorScheme="red" size="lg" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">

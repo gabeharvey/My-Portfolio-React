@@ -14,7 +14,7 @@ const Navbar = () => {
         mb="150px"
       >
         <Heading as="h1" size="lg" fontFamily="'Electrolize', cursive" fontSize="2xl">
-          Gabe's React Portfolio
+          Gabe Harvey's Portfolio
         </Heading>
         <Spacer />
         <Flex fontFamily="'Share Tech Mono', cursive" fontSize="lg">
