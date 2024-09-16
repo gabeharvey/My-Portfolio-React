@@ -5,13 +5,12 @@ const Home = () => {
     <Container maxW="container.lg" centerContent>
       <VStack spacing={8} textAlign="center" py={12}>
         <Box>
-          <Heading mb={4}>Welcome to My Portfolio</Heading>
-          <Text fontSize="xl">
-            I’m a passionate web developer specializing in creating amazing user experiences.
-            Explore my work and get in touch to discuss your next project!
+          <Heading mb={4} fontFamily="'Electrolize', cusive">Welcome to My Portfolio</Heading>
+          <Text fontSize="xl" fontFamily="'Share Tech Mono', cursive">
+            Gabe Harvey is a Full-Stack Web Developer and a rising star in the coding world! Please check out some of my work!
           </Text>
         </Box>
-        <Button colorScheme="teal" size="lg">
+        <Button colorScheme="gray" size="lg" fontFamily="'Share Tech Mono', cursive">
           View My Work
         </Button>
       </VStack>

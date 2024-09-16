@@ -9,10 +9,10 @@ const Footer = () => {
         <Stack spacing={4} textAlign="center">
           <Text>&copy; {new Date().getFullYear()} Gabe's React Portfolio. All rights reserved.</Text>
           <Stack direction="row" spacing={6} justify="center">
-            <Link href="https://linkedin.com/in/your-profile">
+            <Link href="https://www.linkedin.com/in/gabe-harvey-37ab90308/">
               LinkedIn
             </Link>
-            <Link href="https://github.com/your-profile">
+            <Link href="https://github.com/gabeharvey">
               GitHub
             </Link>
           </Stack>
