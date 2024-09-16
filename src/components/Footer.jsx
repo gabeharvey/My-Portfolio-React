@@ -1,28 +1,18 @@
-import { Box, Text, Link, Container, Stack, useColorModeValue } from '@chakra-ui/react';
+/* eslint-disable react/no-unescaped-entities */
+import { Box, Text, Link, Container, Stack } from '@chakra-ui/react';
 
 const Footer = () => {
-  const bg = useColorModeValue('gray.100', 'gray.900');
-  const color = useColorModeValue('gray.800', 'white');
 
   return (
-    <Box bg={bg} color={color} py={6} mt={12}>
+    <Box py={6} mt={12} fontFamily="'Share Tech Mono', cursive">
       <Container maxW="container.lg" centerContent>
         <Stack spacing={4} textAlign="center">
-          <Text>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</Text>
+          <Text>&copy; {new Date().getFullYear()} Gabe's React Portfolio. All rights reserved.</Text>
           <Stack direction="row" spacing={6} justify="center">
-            <Link href="#about" color={color}>
-              About
-            </Link>
-            <Link href="#projects" color={color}>
-              Projects
-            </Link>
-            <Link href="#contact" color={color}>
-              Contact
-            </Link>
-            <Link href="https://linkedin.com/in/your-profile" isExternal color={color}>
+            <Link href="https://linkedin.com/in/your-profile">
               LinkedIn
             </Link>
-            <Link href="https://github.com/your-profile" isExternal color={color}>
+            <Link href="https://github.com/your-profile">
               GitHub
             </Link>
           </Stack>
