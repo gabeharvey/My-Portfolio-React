@@ -60,7 +60,6 @@ const MyExperience = () => {
               bgColor="#fffdd0"
               color="#333333"
               maxWidth="400px"
-              boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)"
               textAlign="center"
             >
               <Image
