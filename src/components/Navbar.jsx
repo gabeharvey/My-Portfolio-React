@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { Box, Flex, Heading, Spacer, Link, IconButton, useDisclosure, Divider, Text } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { CgMenuGridO } from 'react-icons/cg';
 import { motion } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection, refs }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showCloseIcon, setShowCloseIcon] = useState(false);
   const menuRef = useRef();
@@ -55,12 +56,22 @@ const Navbar = () => {
         </Heading>
         <Spacer />
         <Flex display={['none', 'none', 'flex']} fontFamily="'Share Tech Mono', cursive" fontSize="lg">
-          <Link href="#about" mx={4}>About</Link>
-          <Link href="#projects" mx={4}>Projects</Link>
-          <Link href="#contact" mx={4}>Contact</Link>
-          <Link href="#resume" mx={4}>Resume</Link>
+          <Link mx={4} onClick={() => scrollToSection(refs.aboutRef)}>About</Link>
+          <Link mx={4} onClick={() => scrollToSection(refs.projectsRef)}>Projects</Link>
+          <Link mx={4} onClick={() => scrollToSection(refs.myExperienceRef)}>Experience</Link>
+          <Link mx={4} onClick={() => scrollToSection(refs.myEducationRef)}>Education</Link>
+          <Link 
+            href="https://emerald-willi-3.tiiny.site" 
+            fontSize="lg" 
+            my={2} 
+            onClick={onClose} 
+            fontFamily="'Share Tech Mono', cursive" 
+            isExternal
+          >
+            Resume
+          </Link>
         </Flex>
-        
+
         <IconButton
           aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
           icon={
@@ -110,7 +121,7 @@ const Navbar = () => {
             overflow="hidden"
             p={0}
             m={0}
-            transform="translateX(0)" 
+            transform="translateX(0)"
           >
             <Flex alignItems="center" justifyContent="space-between" mb="1rem" p="20px" backgroundColor="#e03c31">
               <Text fontSize="2xl" fontWeight="bold" fontFamily="'Electrolize', cursive" mt="15px">
@@ -129,16 +140,26 @@ const Navbar = () => {
             </Flex>
             <Divider borderColor="#fffdd0" />
             <Flex direction="column" alignItems="flex-start" h="80%" ml="20px" mt="20px">
-              <Link href="#about" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+              <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.aboutRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
                 About
               </Link>
-              <Link href="#projects" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+              <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.projectsRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
                 Projects
               </Link>
-              <Link href="#contact" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
-                Contact
+              <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.myExperienceRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
+                Experience
               </Link>
-              <Link href="#resume" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+              <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.myEducationRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
+                Education
+              </Link>
+              <Link 
+                href="https://emerald-willi-3.tiiny.site" 
+                fontSize="lg" 
+                my={2} 
+                onClick={onClose} 
+                fontFamily="'Share Tech Mono', cursive" 
+                isExternal
+              >
                 Resume
               </Link>
             </Flex>
