@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { Box, Heading, Text, Container, VStack, SimpleGrid, Image, Button, Link, HStack } from '@chakra-ui/react';
+import { Box, Heading, Text, Container, VStack, SimpleGrid, Image, Link, HStack } from '@chakra-ui/react';
 import { useSpring, animated } from '@react-spring/web';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -54,21 +53,15 @@ const Home = () => {
 
   return (
     <Container maxW="container.lg" bgColor="#333333" mt="50px">
-      <VStack spacing={8} textAlign="center" py={12}>
+      <VStack spacing={8} textAlign="center" py={1}>
         <Box>
-          <Heading mb={4} fontFamily="'Electrolize', cursive" color="#fffdd0">Gabe Harvey's Portfolio</Heading>
+          <Heading mb={4} fontFamily="'Electrolize', cursive" color="#fffdd0">My Projects</Heading>
           <Text fontSize="xl" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">
-            Martin "Gabe" Harvey is a Full-Stack Web Developer and a rising star in the coding world! Please check out some of my work!
+            (Please flip the cards to Learn More)
           </Text>
         </Box>
-        <Button colorScheme="red" size="lg" fontFamily="'Share Tech Mono', cursive" color="#fffdd0">
-          View My Work
-        </Button>
       </VStack>
       <VStack spacing={6} align="center" width="100%">
-        <Heading size="xl" mb={6} color="#fffdd0" fontFamily="'Share Tech Mono', cursive">
-          My Projects
-        </Heading>
         <SimpleGrid columns={[1, 2, 2]} spacing={10} width="100%" justifyItems="center">
           {cardData.map((card, index) => (
             <Box key={index} p={4} width="100%" maxWidth="400px" cursor="pointer" display="flex" justifyContent="center">
@@ -120,6 +113,9 @@ const Home = () => {
                     backgroundColor: '#fffdd0',
                   }}
                 >
+                  <Text color="#333333" fontFamily="'Share Tech Mono', cursive" textAlign="center" mb={4} fontWeight="bold">
+                    {card.backText}
+                  </Text>
                   <Text color="#333333" fontFamily="'Share Tech Mono', cursive" textAlign="center" mb={4}>
                     Built With:
                   </Text>
@@ -135,9 +131,6 @@ const Home = () => {
                       />
                     ))}
                   </HStack>
-                  <Text color="#333333" fontFamily="'Share Tech Mono', cursive" textAlign="center" mb={4}>
-                    {card.backText}
-                  </Text>
                   <Link href={card.projectUrl} isExternal color="#333333" fontFamily="'Share Tech Mono', cursive" fontWeight="bold">
                     Visit Project
                   </Link>

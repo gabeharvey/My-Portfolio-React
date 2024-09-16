@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Box, Flex, Heading, Spacer, Link } from '@chakra-ui/react';
 
 const Navbar = () => {
@@ -13,8 +12,8 @@ const Navbar = () => {
         position="relative"
         mb="150px"
       >
-        <Heading as="h1" size="lg" fontFamily="'Electrolize', cursive" fontSize="2xl">
-          Gabe Harvey's Portfolio
+        <Heading as="h1" size="lg" fontFamily="'Electrolize', cursive" fontSize="4xl">
+          Gabe Harvey
         </Heading>
         <Spacer />
         <Flex fontFamily="'Share Tech Mono', cursive" fontSize="lg">
