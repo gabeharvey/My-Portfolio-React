@@ -1,27 +1,26 @@
-import { Box, Flex, Heading, Spacer, Link, Button, useColorModeValue } from '@chakra-ui/react';
+/* eslint-disable react/no-unescaped-entities */
+import { Box, Flex, Heading, Spacer, Link, Button } from '@chakra-ui/react';
 
 const Navbar = () => {
-  const bg = useColorModeValue('gray.100', 'gray.900');
-  const color = useColorModeValue('gray.800', 'white');
 
   return (
-    <Box bg={bg} p={4} boxShadow="md">
+    <Box p={4}>
       <Flex align="center" maxW="container.lg" mx="auto">
-        <Heading as="h1" size="lg" color={color}>
-          My Portfolio
+        <Heading as="h1" size="lg" fontFamily="'Electrolize', cusive">
+          Gabe's React Portfolio
         </Heading>
         <Spacer />
-        <Flex>
-          <Link href="#about" px={4} color={color} fontSize="lg">
+        <Flex fontFamily="'Share Tech Mono', cursive">
+          <Link href="#about" px={4} mt={1.5} fontSize="lg">
             About
           </Link>
-          <Link href="#projects" px={4} color={color} fontSize="lg">
+          <Link href="#projects" px={4} mt={1.5} fontSize="lg">
             Projects
           </Link>
-          <Link href="#contact" px={4} color={color} fontSize="lg">
+          <Link href="#contact" px={4} mt={1.5} fontSize="lg">
             Contact
           </Link>
-          <Button colorScheme="teal" ml={4}>
+          <Button colorScheme="gray" ml={4}>
             Resume
           </Button>
         </Flex>
