@@ -49,7 +49,7 @@ const About = () => {
     mb={{ base: 4, md: 0 }}
     mr={{ md: 4 }}
     alignSelf="center"
-    zIndex={2} // Ensure the image is on top
+    zIndex={2} 
     style={{
       maskImage: 'radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%)',
       WebkitMaskImage: 'radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%)',

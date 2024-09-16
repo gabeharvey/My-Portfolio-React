@@ -1,22 +1,74 @@
-import { Box, Flex, Heading, Spacer, Link } from '@chakra-ui/react';
+import { Box, Flex, Heading, Spacer, Link, IconButton, useDisclosure, Divider, Text } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
+import { CgMenuGridO } from 'react-icons/cg';
+import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [showCloseIcon, setShowCloseIcon] = useState(false);
+  const menuRef = useRef();
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => setShowCloseIcon(true), 200);
+    } else {
+      setShowCloseIcon(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+  const menuVariants = {
+    hidden: { opacity: 0, x: '100%' },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+      },
+    },
+    exit: { opacity: 0, x: '100%' },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        type: 'spring',
+        stiffness: 260,
+        damping: 20,
+      },
+    },
+  };
   return (
     <Box>
       <Flex
         align="center"
-        id="navbar"
-        h="120px" 
-        px="2rem" 
+        h="120px"
+        px="2rem"
         py="2.5rem"
         position="relative"
         mb="150px"
+        id="navbar"
       >
         <Heading as="h1" size="lg" fontFamily="'Electrolize', cursive" fontSize="4xl">
           Gabe Harvey
         </Heading>
         <Spacer />
-        <Flex fontFamily="'Share Tech Mono', cursive" fontSize="lg">
+        <Flex display={['none', 'none', 'flex']} fontFamily="'Share Tech Mono', cursive" fontSize="lg">
           <Link href="#about" mx={4}>
             About
           </Link>
@@ -26,14 +78,77 @@ const Navbar = () => {
           <Link href="#contact" mx={4}>
             Contact
           </Link>
-          <Link href="#contact" mx={4}>
+          <Link href="#resume" mx={4}>
             Resume
           </Link>
         </Flex>
+        <IconButton
+          aria-label={isOpen ? 'Close Menu' : 'Open Menu'}
+          icon={showCloseIcon ? <CloseIcon /> : <CgMenuGridO />}
+          display={['block', 'block', 'none']}
+          onClick={isOpen ? onClose : onOpen}
+          variant="unstyled"
+          fontSize="30px"
+          color="#fffdd0"
+          _hover={{ bg: 'none' }}
+          _focus={{ boxShadow: 'none' }}
+          mt="20px"
+          mb="20px"
+        />
       </Flex>
+      {isOpen && (
+        <motion.div initial="hidden" animate="visible" exit="exit" variants={menuVariants}>
+          <Box
+            ref={menuRef}
+            position="fixed"
+            top="0"
+            right="0"
+            width="70%"
+            height="100vh"
+            bg="#e03c31"
+            zIndex="overlay"
+            color="#fffdd0"
+            borderTopLeftRadius="30px" 
+            borderBottomLeftRadius="30px"
+            boxShadow="0 0 15px rgba(0, 0, 0, 0.8)"
+            overflow="hidden"
+          >
+            <motion.div variants={itemVariants}>
+              <Flex alignItems="center" justifyContent="space-between" mb="1rem" p="20px" backgroundColor="#e03c31">
+                <Text fontSize="2xl" fontWeight="bold" fontFamily="'Electrolize', cursive">
+                  Menu
+                </Text>
+                <IconButton
+                  aria-label="Close Menu"
+                  icon={<CloseIcon />}
+                  onClick={onClose}
+                  variant="unstyled"
+                  fontSize="24px"
+                  color="#fffdd0"
+                  padding="10px"
+                />
+              </Flex>
+              <Divider borderColor="#fffdd0" />
+              <Flex direction="column" alignItems="flex-start" justifyContent="space-evenly" h="80%" ml="20px" mt="20px">
+                <Link href="#about" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+                  About
+                </Link>
+                <Link href="#projects" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+                  Projects
+                </Link>
+                <Link href="#contact" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+                  Contact
+                </Link>
+                <Link href="#resume" fontSize="lg" my={2} onClick={onClose} fontFamily="'Share Tech Mono', cursive">
+                  Resume
+                </Link>
+              </Flex>
+            </motion.div>
+          </Box>
+        </motion.div>
+      )}
     </Box>
   );
 };
 
 export default Navbar;
-
