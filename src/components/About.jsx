@@ -43,7 +43,7 @@ const About = () => {
   <Image
     src="/profile-pic.png" 
     alt="Picture of Gabe Harvey"
-    borderRadius="15px"
+    borderRadius="55px"
     boxSize={{ base: '300px', sm: '350px', md: '350px', lg: '400px' }}
     objectFit="cover"
     mb={{ base: 4, md: 0 }}
