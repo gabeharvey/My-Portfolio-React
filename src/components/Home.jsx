@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { Box, Heading, Text, Container, VStack, SimpleGrid, Image, Button } from '@chakra-ui/react';
+import { Box, Heading, Text, Container, VStack, SimpleGrid, Image, Button, Link, HStack } from '@chakra-ui/react';
 import { useSpring, animated } from '@react-spring/web';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,7 +15,7 @@ const createSpringProps = (flips, index) => {
 };
 
 const Home = () => {
-  const [flipped, setFlipped] = useState([false, false, false, false]); 
+  const [flipped, setFlipped] = useState([false, false, false, false]);
 
   const handleFlip = (index) => {
     const newFlipped = [...flipped];
@@ -28,23 +28,27 @@ const Home = () => {
   const cardData = [
     {
       frontImage: 'tives-thread-and-thimble-logo.png',
-      backLogo: '/tech1-logo.png',
-      backText: 'Tives Thread and Thimble'
+      techLogos: ['/react-logo.png', '/mern-logo.png', '/javascript-logo.png'],
+      backText: 'Tives Thread and Thimble',
+      projectUrl: 'https://tives-thread-and-thimble.onrender.com/'
     },
     {
       frontImage: 'harvey-timber-screen.png',
-      backLogo: '/tech2-logo.png',
-      backText: 'Harvey Timber'
+      techLogos: ['/react-logo.png', '/mern-logo.png', '/javascript-logo.png'],
+      backText: 'Harvey Timber',
+      projectUrl: 'https://harvey-timber.onrender.com/'
     },
     {
       frontImage: 'desk-space-logo.png',
-      backLogo: '/tech3-logo.png',
-      backText: 'Desk Space'
+      techLogos: ['/react-logo.png', '/mern-logo.png', '/javascript-logo.png'],
+      backText: 'Desk Space',
+      projectUrl: 'https://desk-space.onrender.com/'
     },
     {
       frontImage: 'yeez-and-jays-logo.png',
-      backLogo: '/tech4-logo.png',
-      backText: 'Vue.js, Express.js, MySQL'
+      techLogos: ['/heroku-logo.png', '/agile-logo.png', '/javascript-logo.png'],
+      backText: 'Yeez and Jays',
+      projectUrl: 'https://stark-castle-84556-b858ceaf5d7f.herokuapp.com/'
     }
   ];
 
@@ -74,7 +78,7 @@ const Home = () => {
                   transform: springProps[index]?.transform || 'none',
                   position: 'relative',
                   width: '100%',
-                  height: '300px', 
+                  height: '300px',
                 }}
                 onClick={() => handleFlip(index)}
               >
@@ -102,7 +106,7 @@ const Home = () => {
                     position: 'absolute',
                     top: 0,
                     backfaceVisibility: 'hidden',
-                    transform: 'rotateX(180deg)', 
+                    transform: 'rotateX(180deg)',
                     width: '100%',
                     height: '100%',
                     borderRadius: '15px',
@@ -113,20 +117,30 @@ const Home = () => {
                     justifyContent: 'center',
                     color: 'white',
                     padding: '1rem',
-                    backgroundColor: '#444444',
+                    backgroundColor: '#fffdd0',
                   }}
                 >
-                  <Image
-                    src={card.backLogo}
-                    alt={`Technologies logo ${index + 1}`}
-                    borderRadius="15px"
-                    boxSize="80px"
-                    mb={4}
-                    objectFit="contain"
-                  />
-                  <Text color="#fffdd0" fontFamily="'Share Tech Mono', cursive" textAlign="center">
+                  <Text color="#333333" fontFamily="'Share Tech Mono', cursive" textAlign="center" mb={4}>
+                    Built With:
+                  </Text>
+                  <HStack spacing={4} mb={4}>
+                    {card.techLogos.map((logo, idx) => (
+                      <Image
+                        key={idx}
+                        src={logo}
+                        alt={`Tech logo ${idx + 1}`}
+                        borderRadius="15px"
+                        boxSize="50px"
+                        objectFit="contain"
+                      />
+                    ))}
+                  </HStack>
+                  <Text color="#333333" fontFamily="'Share Tech Mono', cursive" textAlign="center" mb={4}>
                     {card.backText}
                   </Text>
+                  <Link href={card.projectUrl} isExternal color="#333333" fontFamily="'Share Tech Mono', cursive" fontWeight="bold">
+                    Visit Project
+                  </Link>
                 </animated.div>
               </animated.div>
             </Box>
