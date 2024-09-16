@@ -4,20 +4,20 @@ import { Box, Flex, Heading, Spacer, Link, Button } from '@chakra-ui/react';
 const Navbar = () => {
 
   return (
-    <Box p={4}>
-      <Flex align="center" maxW="container.lg" mx="auto">
+    <Box>
+      <Flex align="center" id="navbar">
         <Heading as="h1" size="lg" fontFamily="'Electrolize', cusive">
           Gabe's React Portfolio
         </Heading>
         <Spacer />
         <Flex fontFamily="'Share Tech Mono', cursive">
-          <Link href="#about" px={4} mt={1.5} fontSize="lg">
+          <Link href="#about" fontSize="lg">
             About
           </Link>
-          <Link href="#projects" px={4} mt={1.5} fontSize="lg">
+          <Link href="#projects" fontSize="lg">
             Projects
           </Link>
-          <Link href="#contact" px={4} mt={1.5} fontSize="lg">
+          <Link href="#contact" fontSize="lg">
             Contact
           </Link>
           <Button colorScheme="gray" ml={4}>

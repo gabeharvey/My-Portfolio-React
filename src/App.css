@@ -3,3 +3,43 @@
 :root {
   font-family: 'Electrolize', cursive;
 }
+
+#navbar {
+  background: linear-gradient(135deg, #2c3e50, #34495e); 
+  color: #ecf0f1; 
+  padding: 10px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#navbar a {
+  color: #ecf0f1; 
+  text-decoration: none; 
+  margin: 0 15px; 
+  font-weight: 300; 
+}
+
+#navbar a:hover {
+  color: #f39c12; 
+}
+
+#footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e); 
+  color: #ecf0f1; 
+  padding: 10px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer a {
+  color: #ecf0f1; 
+  text-decoration: none; 
+  margin: 0 15px; 
+  font-weight: 300; 
+}
+
+#footer a:hover {
+  color: #f39c12; 
+}
