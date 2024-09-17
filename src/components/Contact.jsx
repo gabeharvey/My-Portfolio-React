@@ -97,7 +97,7 @@ const Contact = () => {
               Send Message
             </Button>
           </VStack>
-          {status && <Text color="#fffdd0" mt={4}>{status}</Text>}
+          {status && <Text color="#fffdd0" fontFamily="'Share Tech Mono', cursive" mt={4}>{status}</Text>}
         </Box>
       </VStack>
     </Container>
