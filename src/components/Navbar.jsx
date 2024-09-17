@@ -60,6 +60,7 @@ const Navbar = ({ scrollToSection, refs }) => {
           <Link mx={4} onClick={() => scrollToSection(refs.projectsRef)}>Projects</Link>
           <Link mx={4} onClick={() => scrollToSection(refs.myExperienceRef)}>Experience</Link>
           <Link mx={4} onClick={() => scrollToSection(refs.myEducationRef)}>Education</Link>
+          <Link mx={4} onClick={() => scrollToSection(refs.contactRef)}>Contact</Link>
           <Link 
             href="https://emerald-willi-3.tiiny.site" 
             fontSize="lg" 
@@ -151,6 +152,9 @@ const Navbar = ({ scrollToSection, refs }) => {
               </Link>
               <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.myEducationRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
                 Education
+              </Link>
+              <Link fontSize="lg" my={2} onClick={() => { scrollToSection(refs.contactRef); onClose(); }} fontFamily="'Share Tech Mono', cursive">
+                Contact
               </Link>
               <Link 
                 href="https://emerald-willi-3.tiiny.site" 

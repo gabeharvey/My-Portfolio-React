@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import MyExperience from './components/MyExperience';
 import MyEducation from './components/MyEducation';
 import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
   const aboutRef = useRef(null);
@@ -13,15 +14,21 @@ function App() {
   const myExperienceRef = useRef(null); 
   const myEducationRef = useRef(null); 
   const resumeRef = useRef(null); 
+  const contactRef = useRef(null);
+
   const scrollToSection = (sectionRef) => {
-    sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (sectionRef && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.error('Ref is not defined or current is null.');
+    }
   };
 
   return (
     <div>
       <Navbar 
         scrollToSection={scrollToSection} 
-        refs={{ aboutRef, projectsRef, myExperienceRef, myEducationRef, resumeRef }} 
+        refs={{ aboutRef, projectsRef, myExperienceRef, myEducationRef, contactRef, resumeRef }} 
       />
       <div ref={aboutRef}>
         <About scrollToSection={scrollToSection} refs={{ projectsRef }} />
@@ -34,6 +41,9 @@ function App() {
       </div>
       <div ref={myEducationRef}>
         <MyEducation />
+      </div>
+      <div ref={contactRef}>
+        <Contact />
       </div>
       <Footer />
     </div>
